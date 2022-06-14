@@ -1,0 +1,1 @@
+My personal dotfiles for several Linux apps. Based on Ubuntu 22.04
