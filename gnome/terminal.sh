@@ -5,6 +5,7 @@ DCONF_BASE=/org/gnome/terminal/legacy/profiles:
  
 nord0="#2E3440"
 nord1="#3B4252"
+nord2="#434C5E"
 nord3="#4C566A"
 nord4="#D8DEE9"
 nord5="#E5E9F0"
@@ -25,13 +26,20 @@ nord8_rgb="rgb(136,192,208)"
 # Disable theme
 dconf write "$DCONF_BASE/:$PROFILE_UUID/use-theme-colors" "false"
 dconf write "$DCONF_BASE/:$PROFILE_UUID/use-theme-background" "false"
-dconf write "$DCONF_BASE/:$PROFILE_UUID/use-theme-transparency" "false"
+# Disable scrollbar
+dconf write "$DCONF_BASE/:$PROFILE_UUID/scrollbar-policy" "'never'"
+# Disable menubar
+dconf write "$DCONF_BASE/:$PROFILE_UUID/default-show-menubar" "false"
+dconf write "$DCONF_BASE/:$PROFILE_UUID/menu-accelerator-enabled" "false"
+# Transparency
+dconf write "$DCONF_BASE/:$PROFILE_UUID/use-theme-transparency" "true"
+dconf write "$DCONF_BASE/:$PROFILE_UUID/background-transparency-percent" "40"
 # Palette
 dconf write "$DCONF_BASE/:$PROFILE_UUID/palette" "['$nord1', '$nord11', '$nord14', '$nord13', '$nord9', '$nord15', '$nord8', '$nord5', '$nord3', '$nord11', '$nord14', '$nord13', '$nord9', '$nord15', '$nord7', '$nord6']"
 # Backgrounds
 dconf write "$DCONF_BASE/:$PROFILE_UUID/background-color" "'$nord0'"
 dconf write "$DCONF_BASE/:$PROFILE_UUID/foreground-color" "'$nord4'"
-dconf write "$DCONF_BASE/:$PROFILE_UUID/use-transparent-background" "false"
+dconf write "$DCONF_BASE/:$PROFILE_UUID/use-transparent-background" "true"
 # .
 dconf write "$DCONF_BASE/:$PROFILE_UUID/bold-color" "'$nord4'"
 dconf write "$DCONF_BASE/:$PROFILE_UUID/bold-color-same-as-fg" "true"
