@@ -6,6 +6,10 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          12
+bspc config active_border_color \#88c0d0
+bspc config focused_border_color \#88c0d0
+bspc config normal_border_color \#2e3440
+
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -17,6 +21,11 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
+export PATH="$PATH:/home/nicolas/.config/spotifyc:/home/nicolas/.config/pulse"
+
 ${HOME}/.fehbg
-picom -CGb &
+picom --experimental-backends -CGb &
 ${HOME}/.config/polybar/launch.sh &
+
+# Starts barrier
+/usr/bin/barrierc -f --no-tray --debug INFO --name nicolas-notebook --disable-crypto [192.168.0.110]:24800 &

@@ -2,6 +2,7 @@
 
 PROFILE_UUID="$(gsettings get "org.gnome.Terminal.ProfilesList" default | tr -d \')"
 DCONF_BASE=/org/gnome/terminal/legacy/profiles:
+DCONF_BASEG=/org/gnome/terminal/legacy
  
 nord0="#2E3440"
 nord1="#3B4252"
@@ -29,8 +30,11 @@ dconf write "$DCONF_BASE/:$PROFILE_UUID/use-theme-background" "false"
 # Disable scrollbar
 dconf write "$DCONF_BASE/:$PROFILE_UUID/scrollbar-policy" "'never'"
 # Disable menubar
-dconf write "$DCONF_BASE/:$PROFILE_UUID/default-show-menubar" "false"
-dconf write "$DCONF_BASE/:$PROFILE_UUID/menu-accelerator-enabled" "false"
+dconf write "$DCONF_BASEG/default-show-menubar" "false"
+dconf write "$DCONF_BASEG/menu-accelerator-enabled" "false"
+# Font
+dconf write "$DCONF_BASE/:$PROFILE_UUID/font" "'Fira Code 11'"
+dconf write "$DCONF_BASE/:$PROFILE_UUID/use-system-font" "false"
 # Transparency
 dconf write "$DCONF_BASE/:$PROFILE_UUID/use-theme-transparency" "true"
 dconf write "$DCONF_BASE/:$PROFILE_UUID/background-transparency-percent" "40"
